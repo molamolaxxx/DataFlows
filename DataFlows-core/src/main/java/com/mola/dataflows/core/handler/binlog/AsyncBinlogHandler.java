@@ -7,6 +7,7 @@ import com.mola.dataflows.core.handler.DataFlowsHandler;
 import com.mola.dataflows.core.listener.BinlogChangeListener;
 import com.mola.dataflows.core.register.MetaInfo;
 import com.mola.dataflows.core.register.MetaInfoRegister;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 import java.util.concurrent.*;
@@ -18,6 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Description: binlog异步处理器
  * @date : 2021-08-08 21:23
  **/
+@Slf4j
 public class AsyncBinlogHandler implements DataFlowsHandler<EventData, Future> {
 
     private DataFlowContext context;

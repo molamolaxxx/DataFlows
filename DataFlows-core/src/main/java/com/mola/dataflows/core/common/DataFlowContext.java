@@ -5,6 +5,7 @@ import com.mola.dataflows.core.handler.connect.BinlogConnectionHandler;
 import com.mola.dataflows.core.listener.CommonBinlogListener;
 import com.mola.dataflows.core.register.MetaInfoRegister;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -15,6 +16,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * @date : 2021-08-08 21:37
  **/
 @Data
+@Slf4j
 public class DataFlowContext {
 
     /**
@@ -48,5 +50,6 @@ public class DataFlowContext {
         this.binlogConnectionHandler = new BinlogConnectionHandler(this.commonBinlogListener);
         this.asyncBinlogHandler = new AsyncBinlogHandler(this);
         flag.compareAndSet(false, true);
+        log.info("context init success");
     }
 }
